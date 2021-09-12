@@ -1,0 +1,115 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+html {
+}
+
+h1 {
+	color: #7366ff;
+}
+
+input {
+	border: 1px solid rgb(184, 184, 184);
+	padding: 0.4em;
+}
+
+input[type=submit] {
+	border: 0;
+	background-color: #7366ff;
+	color: white;
+	padding: 0.5em;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+textarea {
+	width: 60%;
+	min-height: 10em;
+	border: 1px solid rgb(184, 184, 184);
+}
+
+a {
+	text-decoration: unset;
+	color: rgb(39, 39, 39);
+
+	&:hover {
+		background-color: rgba(252, 252, 252, 0.9) !important;
+		color: rgb(39, 39, 39) !important;
+	}
+}
+
+.p-1 {
+	padding: 1em;
+}
+
+.flashes {
+	opacity: 1;
+  transition: opacity 0.5s;
+
+	&:empty {
+		display: none;
+	}
+
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background: #7366ff !important;
+	color: white !important;
+	left: 0;
+	padding: 1.2em;
+	margin: 0;
+}
+
+.posts {
+	display: flex;
+	flex-direction: column;
+
+	hr {
+		opacity: 0.2;
+	}
+
+	.header {
+		padding: 1em;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.post {
+		padding: 1em;
+		margin: 1em;
+		background-color: rgb(252, 252, 252);
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+		.header {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&:hover {
+			background-color: rgba(252, 252, 252, 0.9);
+		}
+
+		.created-by {
+			color: rgb(75, 75, 75);
+			font-size: small;
+			padding-top: 0.2em;
+		}
+
+		.created-at {
+
+		}
+
+		.content {
+			color: rgb(39, 39, 39);
+			white-space: pre-line;
+		}
+
+		.title {
+			font-size: large;
+			color: #7366ff
+		}
+	}
+}

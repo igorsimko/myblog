@@ -1,0 +1,18 @@
+<div class="home">
+    <div class="logout">
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    </div>
+    <h1 class="welcome">Welcome <%= current_user.name %></h1>
+    <%= link_to '+ New Post', new_post_path, class: 'new-post' %>
+    <br>
+    <br>
+    <div class="posts">
+        <% User.find_each do |user|%>
+            <a href=<%= posts_path(user_id: user.id) %>>
+                <div class="post">
+                    <h3><%="#{user.name}'s posts"%></h3>
+                </div>
+            </a>
+        <% end %>
+    </div>
+</div>

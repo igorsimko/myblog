@@ -1,0 +1,24 @@
+.session-wrapper {
+
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  input {
+    width: 90%;
+    border: 1px solid rgb(184, 184, 184);
+    padding: 0.4em;
+  }
+
+  .session {
+      margin-top: 5em;
+      width: 20em;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      padding: 1em;
+      text-align: center;
+
+      input[type=submit] {
+        width: 100%;
+      }
+  }
+}

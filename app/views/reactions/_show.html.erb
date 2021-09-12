@@ -1,0 +1,16 @@
+<% comment = local_assigns[:comment]%>
+
+<div class="reactions" >
+  <%= form_for :reaction, url: post_comment_react_path(post_id: comment.post_id, comment_id: comment.id), method: :post, remote: true do |form| %>
+    <%= form.hidden_field :kind, value: :like %>
+    <%= form.submit "❤️ #{comment.likes}" %>
+  <% end %>
+  <%= form_for :reaction, url: post_comment_react_path(post_id: comment.post_id, comment_id: comment.id), method: :post, remote: true do |form| %>
+    <%= form.hidden_field :kind, value: :smile %>
+    <%= form.submit "😊 #{comment.smiles}" %>
+  <% end %>
+  <%= form_for :reaction, url: post_comment_react_path(post_id: comment.post_id, comment_id: comment.id), method: :post, remote: true do |form| %>
+    <%= form.hidden_field :kind, value: :thumbs_up %>
+    <%= form.submit "👍 #{comment.thumbs_ups}" %>
+  <% end %>
+</div>

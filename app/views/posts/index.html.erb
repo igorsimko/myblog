@@ -1,0 +1,21 @@
+<div class="posts">
+  <div class="header">
+    <h1>Posts</h1>
+    <div class="action">
+      <%= link_to 'Back', root_path %>
+    </div>
+  </div>
+
+  <% @posts.each do |post| %>
+    <a href=<%= post_url(post) %>>
+      <div class="post" data-post-id=<%=post.id%> >
+        <div class="title"><%= post.title %></div>
+        <div class="created-by"><%= "#{post.user.name} (#{time_ago_in_words post.created_at})" %></div>
+        <br>
+        <div><%= "#{post.content.first(100)}..."%></div>
+      </div>
+    </a>
+  <% end %>
+</div>
+
+</div>

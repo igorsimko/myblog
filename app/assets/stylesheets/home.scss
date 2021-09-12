@@ -1,0 +1,34 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.home {
+    padding: 1em;
+
+    .welcome {
+        width: 100%;
+        text-align: center;
+    }
+
+    .posts {
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        .post {
+            width: 10em;
+            text-align: center;
+        }
+    }
+
+    .logout {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .new-post {
+		padding: 1em;
+		font-size: large
+	}
+}

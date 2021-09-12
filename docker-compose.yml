@@ -1,0 +1,16 @@
+version: "3.9"
+    
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - myblog-data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_PASSWORD: password
+    ports: 
+      - 3306:3306
+  
+volumes:
+  myblog-data:
