@@ -4,8 +4,10 @@
   <div class="header">
     <div class="created-by"><%= comment.user.name %><%= " (#{time_ago_in_words comment.created_at})" %></div>
     <div class="actions">
-      <%= link_to 'Destroy', post_comment_url(post_id: comment.post_id, id: comment.id), method: :delete, data: { confirm: 'Are you sure?' } if current_user.can_edit?(comment) %>
-      <%= link_to 'Edit', edit_post_comment_url(post_id: comment.post_id, id: comment.id) if current_user.can_edit?(comment) %>
+    <% if current_user.can_edit?(comment) %>
+      <%= link_to 'Destroy', post_comment_url(post_id: comment.post_id, id: comment.id), method: :delete, data: { confirm: 'Are you sure?' } %> | 
+      <%= link_to 'Edit', edit_post_comment_url(post_id: comment.post_id, id: comment.id) %>
+    <% end %>
     </div>
   </div>
   <div class="content"><%= comment.content %></div>

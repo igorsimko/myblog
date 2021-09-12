@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_04_193542) do
+ActiveRecord::Schema.define(version: 2021_09_12_194702) do
 
   create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.text "content"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2021_09_04_193542) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "posts", on_delete: :cascade
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
   add_foreign_key "reactions", "comments"

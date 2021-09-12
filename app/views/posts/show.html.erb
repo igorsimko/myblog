@@ -7,6 +7,7 @@
       </div>
       <div>
         <% if current_user.can_edit?(@post) %>
+          <%= link_to 'Destroy', post_path(@post.id), method: :delete, data: { confirm: 'Are you sure?' } %> | 
           <%= link_to 'Edit', edit_post_path(@post) %> |
         <% end %>
         <%= link_to 'Back', posts_path(user_id: @post.user_id) %>

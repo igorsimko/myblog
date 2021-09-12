@@ -60,7 +60,8 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      ActionCable.server.broadcast("post_channel_#{@post.id}", { action: :post_deleted, post_id: @post.id })
+      format.html { redirect_to posts_url(user_id: @post.user_id), notice: 'Post was successfully destroyed.' }
       format.json { render json: json_response('Post was successfully destroyed.', :ok) }
     end
   end
@@ -69,7 +70,8 @@ class PostsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.where(id: params[:id]).first
+    redirect_to :root, notice: "Post does not exist" unless @post
   end
 
   def verify_user
